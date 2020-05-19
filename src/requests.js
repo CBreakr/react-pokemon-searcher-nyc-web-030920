@@ -1,3 +1,33 @@
+
+const baseURL = "http://localhost:3000/pokemon";
+
+const headers = {
+    "content-type": "application/json",
+    "accept": "application/json"
+};
+
+const catchError = (error) => console.error(error);
+
+export const getAllPokemon = () => {
+    return fetch(baseURL).then(res => res.json()).catch(catchError);
+};
+
+export const addNewPokemon = (pokemon) => {
+
+    const body = JSON.stringify(pokemon)
+
+    console.log("body", body);
+
+    return fetch(baseURL, {
+        method: "POST",
+        headers,
+        body
+    })
+    .then(res => res.json())
+    .catch(catchError);
+}
+
+/*
 {
   "pokemon": [
     {
@@ -5,10 +35,7 @@
       "weight": 130,
       "id": 2,
       "name": "ivysaur",
-      "abilities": [
-        "overgrow",
-        "chlorophyll"
-      ],
+      "abilities": ["overgrow", "chlorophyll"],
       "moves": [],
       "stats": [
         {
@@ -36,13 +63,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png"
       }
     },
     {
@@ -50,10 +75,7 @@
       "weight": 1000,
       "id": 3,
       "name": "venusaur",
-      "abilities": [
-        "overgrow",
-        "chlorophyll"
-      ],
+      "abilities": ["overgrow", "chlorophyll"],
       "moves": [],
       "stats": [
         {
@@ -81,13 +103,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/3.png"
       }
     },
     {
@@ -95,10 +115,7 @@
       "weight": 85,
       "id": 5,
       "name": "charmander",
-      "abilities": [
-        "blaze",
-        "solar-power"
-      ],
+      "abilities": ["blaze", "solar-power"],
       "moves": [
         "mega-punch",
         "scratch",
@@ -137,12 +154,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png"
       }
     },
     {
@@ -150,10 +166,7 @@
       "weight": 190,
       "id": 6,
       "name": "charmeleon",
-      "abilities": [
-        "blaze",
-        "solar-power"
-      ],
+      "abilities": ["blaze", "solar-power"],
       "moves": [],
       "stats": [
         {
@@ -181,12 +194,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/5.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/5.png"
       }
     },
     {
@@ -194,10 +206,7 @@
       "weight": 905,
       "id": 7,
       "name": "charizard",
-      "abilities": [
-        "blaze",
-        "solar-power"
-      ],
+      "abilities": ["blaze", "solar-power"],
       "moves": [
         "mega-punch",
         "scratch",
@@ -236,13 +245,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire",
-        "flying"
-      ],
+      "types": ["fire", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/6.png"
       }
     },
     {
@@ -250,10 +257,7 @@
       "weight": 90,
       "id": 10,
       "name": "squirtle",
-      "abilities": [
-        "torrent",
-        "rain-dish"
-      ],
+      "abilities": ["torrent", "rain-dish"],
       "moves": [
         "mega-punch",
         "mega-kick",
@@ -292,12 +296,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png"
       }
     },
     {
@@ -305,10 +308,7 @@
       "weight": 225,
       "id": 11,
       "name": "wartortle",
-      "abilities": [
-        "torrent",
-        "rain-dish"
-      ],
+      "abilities": ["torrent", "rain-dish"],
       "moves": [],
       "stats": [
         {
@@ -336,12 +336,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/8.png"
       }
     },
     {
@@ -349,10 +348,7 @@
       "weight": 855,
       "id": 12,
       "name": "blastoise",
-      "abilities": [
-        "torrent",
-        "rain-dish"
-      ],
+      "abilities": ["torrent", "rain-dish"],
       "moves": [],
       "stats": [
         {
@@ -380,12 +376,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png"
       }
     },
     {
@@ -393,10 +388,7 @@
       "weight": 29,
       "id": 14,
       "name": "caterpie",
-      "abilities": [
-        "shield-dust",
-        "run-away"
-      ],
+      "abilities": ["shield-dust", "run-away"],
       "moves": [],
       "stats": [
         {
@@ -424,12 +416,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "bug"
-      ],
+      "types": ["bug"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/10.png"
       }
     },
     {
@@ -437,9 +428,7 @@
       "weight": 99,
       "id": 15,
       "name": "metapod",
-      "abilities": [
-        "shed-skin"
-      ],
+      "abilities": ["shed-skin"],
       "moves": [],
       "stats": [
         {
@@ -467,12 +456,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "bug"
-      ],
+      "types": ["bug"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/11.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/11.png"
       }
     },
     {
@@ -480,10 +468,7 @@
       "weight": 320,
       "id": 16,
       "name": "butterfree",
-      "abilities": [
-        "compound-eyes",
-        "tinted-lens"
-      ],
+      "abilities": ["compound-eyes", "tinted-lens"],
       "moves": [],
       "stats": [
         {
@@ -511,13 +496,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "bug",
-        "flying"
-      ],
+      "types": ["bug", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/12.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/12.png"
       }
     },
     {
@@ -525,10 +508,7 @@
       "weight": 32,
       "id": 17,
       "name": "weedle",
-      "abilities": [
-        "shield-dust",
-        "run-away"
-      ],
+      "abilities": ["shield-dust", "run-away"],
       "moves": [],
       "stats": [
         {
@@ -556,13 +536,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "bug",
-        "poison"
-      ],
+      "types": ["bug", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/13.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/13.png"
       }
     },
     {
@@ -570,9 +548,7 @@
       "weight": 100,
       "id": 18,
       "name": "kakuna",
-      "abilities": [
-        "shed-skin"
-      ],
+      "abilities": ["shed-skin"],
       "moves": [],
       "stats": [
         {
@@ -600,13 +576,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "bug",
-        "poison"
-      ],
+      "types": ["bug", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/14.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/14.png"
       }
     },
     {
@@ -614,10 +588,7 @@
       "weight": 295,
       "id": 19,
       "name": "beedrill",
-      "abilities": [
-        "swarm",
-        "sniper"
-      ],
+      "abilities": ["swarm", "sniper"],
       "moves": [],
       "stats": [
         {
@@ -645,13 +616,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "bug",
-        "poison"
-      ],
+      "types": ["bug", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/15.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/15.png"
       }
     },
     {
@@ -659,11 +628,7 @@
       "weight": 18,
       "id": 21,
       "name": "pidgey",
-      "abilities": [
-        "keen-eye",
-        "tangled-feet",
-        "big-pecks"
-      ],
+      "abilities": ["keen-eye", "tangled-feet", "big-pecks"],
       "moves": [],
       "stats": [
         {
@@ -691,13 +656,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/16.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/16.png"
       }
     },
     {
@@ -705,11 +668,7 @@
       "weight": 300,
       "id": 22,
       "name": "pidgeotto",
-      "abilities": [
-        "keen-eye",
-        "tangled-feet",
-        "big-pecks"
-      ],
+      "abilities": ["keen-eye", "tangled-feet", "big-pecks"],
       "moves": [],
       "stats": [
         {
@@ -737,13 +696,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/17.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/17.png"
       }
     },
     {
@@ -751,11 +708,7 @@
       "weight": 395,
       "id": 23,
       "name": "pidgeot",
-      "abilities": [
-        "keen-eye",
-        "tangled-feet",
-        "big-pecks"
-      ],
+      "abilities": ["keen-eye", "tangled-feet", "big-pecks"],
       "moves": [],
       "stats": [
         {
@@ -783,13 +736,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/18.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/18.png"
       }
     },
     {
@@ -797,11 +748,7 @@
       "weight": 35,
       "id": 25,
       "name": "rattata",
-      "abilities": [
-        "run-away",
-        "guts",
-        "hustle"
-      ],
+      "abilities": ["run-away", "guts", "hustle"],
       "moves": [],
       "stats": [
         {
@@ -829,12 +776,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/19.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/19.png"
       }
     },
     {
@@ -842,11 +788,7 @@
       "weight": 185,
       "id": 26,
       "name": "raticate",
-      "abilities": [
-        "run-away",
-        "guts",
-        "hustle"
-      ],
+      "abilities": ["run-away", "guts", "hustle"],
       "moves": [
         "bubble-beam",
         "rage",
@@ -882,12 +824,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/20.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/20.png"
       }
     },
     {
@@ -895,10 +836,7 @@
       "weight": 20,
       "id": 27,
       "name": "spearow",
-      "abilities": [
-        "keen-eye",
-        "sniper"
-      ],
+      "abilities": ["keen-eye", "sniper"],
       "moves": [],
       "stats": [
         {
@@ -926,13 +864,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/21.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/21.png"
       }
     },
     {
@@ -940,10 +876,7 @@
       "weight": 380,
       "id": 28,
       "name": "fearow",
-      "abilities": [
-        "keen-eye",
-        "sniper"
-      ],
+      "abilities": ["keen-eye", "sniper"],
       "moves": [],
       "stats": [
         {
@@ -971,13 +904,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/22.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/22.png"
       }
     },
     {
@@ -985,11 +916,7 @@
       "weight": 69,
       "id": 29,
       "name": "ekans",
-      "abilities": [
-        "intimidate",
-        "shed-skin",
-        "unnerve"
-      ],
+      "abilities": ["intimidate", "shed-skin", "unnerve"],
       "moves": [],
       "stats": [
         {
@@ -1017,12 +944,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/23.png"
       }
     },
     {
@@ -1030,11 +956,7 @@
       "weight": 650,
       "id": 30,
       "name": "arbok",
-      "abilities": [
-        "intimidate",
-        "shed-skin",
-        "unnerve"
-      ],
+      "abilities": ["intimidate", "shed-skin", "unnerve"],
       "moves": [
         "wrap",
         "poison-sting",
@@ -1072,12 +994,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/24.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/24.png"
       }
     },
     {
@@ -1085,10 +1006,7 @@
       "weight": 60,
       "id": 32,
       "name": "pikachu",
-      "abilities": [
-        "static",
-        "lightning-rod"
-      ],
+      "abilities": ["static", "lightning-rod"],
       "moves": [],
       "stats": [
         {
@@ -1116,12 +1034,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "electric"
-      ],
+      "types": ["electric"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
       }
     },
     {
@@ -1129,10 +1046,7 @@
       "weight": 300,
       "id": 39,
       "name": "raichu",
-      "abilities": [
-        "static",
-        "lightning-rod"
-      ],
+      "abilities": ["static", "lightning-rod"],
       "moves": [],
       "stats": [
         {
@@ -1160,12 +1074,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "electric"
-      ],
+      "types": ["electric"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/26.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/26.png"
       }
     },
     {
@@ -1173,10 +1086,7 @@
       "weight": 120,
       "id": 40,
       "name": "sandshrew",
-      "abilities": [
-        "sand-veil",
-        "sand-rush"
-      ],
+      "abilities": ["sand-veil", "sand-rush"],
       "moves": [
         "scratch",
         "poison-sting",
@@ -1215,12 +1125,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "ground"
-      ],
+      "types": ["ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/27.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/27.png"
       }
     },
     {
@@ -1228,10 +1137,7 @@
       "weight": 295,
       "id": 41,
       "name": "sandslash",
-      "abilities": [
-        "sand-veil",
-        "sand-rush"
-      ],
+      "abilities": ["sand-veil", "sand-rush"],
       "moves": [],
       "stats": [
         {
@@ -1259,12 +1165,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "ground"
-      ],
+      "types": ["ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/28.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/28.png"
       }
     },
     {
@@ -1272,11 +1177,7 @@
       "weight": 70,
       "id": 42,
       "name": "nidoran-f",
-      "abilities": [
-        "poison-point",
-        "rivalry",
-        "hustle"
-      ],
+      "abilities": ["poison-point", "rivalry", "hustle"],
       "moves": [
         "scratch",
         "double-kick",
@@ -1312,12 +1213,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/29.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/29.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/29.png"
       }
     },
     {
@@ -1325,11 +1225,7 @@
       "weight": 200,
       "id": 43,
       "name": "nidorina",
-      "abilities": [
-        "poison-point",
-        "rivalry",
-        "hustle"
-      ],
+      "abilities": ["poison-point", "rivalry", "hustle"],
       "moves": [],
       "stats": [
         {
@@ -1357,12 +1253,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/30.png"
       }
     },
     {
@@ -1370,11 +1265,7 @@
       "weight": 600,
       "id": 44,
       "name": "nidoqueen",
-      "abilities": [
-        "poison-point",
-        "rivalry",
-        "sheer-force"
-      ],
+      "abilities": ["poison-point", "rivalry", "sheer-force"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -1413,13 +1304,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "poison",
-        "ground"
-      ],
+      "types": ["poison", "ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/31.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/31.png"
       }
     },
     {
@@ -1427,11 +1316,7 @@
       "weight": 90,
       "id": 45,
       "name": "nidoran-m",
-      "abilities": [
-        "poison-point",
-        "rivalry",
-        "hustle"
-      ],
+      "abilities": ["poison-point", "rivalry", "hustle"],
       "moves": [],
       "stats": [
         {
@@ -1459,12 +1344,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/32.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/32.png"
       }
     },
     {
@@ -1472,11 +1356,7 @@
       "weight": 195,
       "id": 46,
       "name": "nidorino",
-      "abilities": [
-        "poison-point",
-        "rivalry",
-        "hustle"
-      ],
+      "abilities": ["poison-point", "rivalry", "hustle"],
       "moves": [],
       "stats": [
         {
@@ -1504,12 +1384,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/33.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/33.png"
       }
     },
     {
@@ -1517,11 +1396,7 @@
       "weight": 620,
       "id": 47,
       "name": "nidoking",
-      "abilities": [
-        "poison-point",
-        "rivalry",
-        "sheer-force"
-      ],
+      "abilities": ["poison-point", "rivalry", "sheer-force"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -1560,13 +1435,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "poison",
-        "ground"
-      ],
+      "types": ["poison", "ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/34.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/34.png"
       }
     },
     {
@@ -1574,11 +1447,7 @@
       "weight": 75,
       "id": 49,
       "name": "clefairy",
-      "abilities": [
-        "cute-charm",
-        "magic-guard",
-        "friend-guard"
-      ],
+      "abilities": ["cute-charm", "magic-guard", "friend-guard"],
       "moves": [
         "pound",
         "double-slap",
@@ -1617,12 +1486,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "fairy"
-      ],
+      "types": ["fairy"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/35.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/35.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/35.png"
       }
     },
     {
@@ -1630,11 +1498,7 @@
       "weight": 400,
       "id": 50,
       "name": "clefable",
-      "abilities": [
-        "cute-charm",
-        "magic-guard",
-        "unaware"
-      ],
+      "abilities": ["cute-charm", "magic-guard", "unaware"],
       "moves": [
         "double-slap",
         "mega-punch",
@@ -1673,12 +1537,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "fairy"
-      ],
+      "types": ["fairy"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/36.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/36.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/36.png"
       }
     },
     {
@@ -1686,10 +1549,7 @@
       "weight": 99,
       "id": 51,
       "name": "vulpix",
-      "abilities": [
-        "flash-fire",
-        "drought"
-      ],
+      "abilities": ["flash-fire", "drought"],
       "moves": [],
       "stats": [
         {
@@ -1717,12 +1577,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/37.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/37.png"
       }
     },
     {
@@ -1730,10 +1589,7 @@
       "weight": 199,
       "id": 52,
       "name": "ninetales",
-      "abilities": [
-        "flash-fire",
-        "drought"
-      ],
+      "abilities": ["flash-fire", "drought"],
       "moves": [],
       "stats": [
         {
@@ -1761,12 +1617,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/38.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/38.png"
       }
     },
     {
@@ -1774,11 +1629,7 @@
       "weight": 55,
       "id": 54,
       "name": "jigglypuff",
-      "abilities": [
-        "cute-charm",
-        "competitive",
-        "friend-guard"
-      ],
+      "abilities": ["cute-charm", "competitive", "friend-guard"],
       "moves": [
         "pound",
         "double-slap",
@@ -1817,13 +1668,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "normal",
-        "fairy"
-      ],
+      "types": ["normal", "fairy"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/39.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/39.png"
       }
     },
     {
@@ -1831,11 +1680,7 @@
       "weight": 120,
       "id": 55,
       "name": "wigglytuff",
-      "abilities": [
-        "cute-charm",
-        "competitive",
-        "frisk"
-      ],
+      "abilities": ["cute-charm", "competitive", "frisk"],
       "moves": [
         "double-slap",
         "mega-punch",
@@ -1874,13 +1719,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "normal",
-        "fairy"
-      ],
+      "types": ["normal", "fairy"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/40.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/40.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/40.png"
       }
     },
     {
@@ -1888,10 +1731,7 @@
       "weight": 75,
       "id": 56,
       "name": "zubat",
-      "abilities": [
-        "inner-focus",
-        "infiltrator"
-      ],
+      "abilities": ["inner-focus", "infiltrator"],
       "moves": [],
       "stats": [
         {
@@ -1919,13 +1759,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "poison",
-        "flying"
-      ],
+      "types": ["poison", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/41.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/41.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/41.png"
       }
     },
     {
@@ -1933,10 +1771,7 @@
       "weight": 550,
       "id": 57,
       "name": "golbat",
-      "abilities": [
-        "inner-focus",
-        "infiltrator"
-      ],
+      "abilities": ["inner-focus", "infiltrator"],
       "moves": [
         "razor-wind",
         "wing-attack",
@@ -1975,13 +1810,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "poison",
-        "flying"
-      ],
+      "types": ["poison", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/42.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/42.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/42.png"
       }
     },
     {
@@ -1989,10 +1822,7 @@
       "weight": 54,
       "id": 59,
       "name": "oddish",
-      "abilities": [
-        "chlorophyll",
-        "run-away"
-      ],
+      "abilities": ["chlorophyll", "run-away"],
       "moves": [],
       "stats": [
         {
@@ -2020,13 +1850,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/43.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/43.png"
       }
     },
     {
@@ -2034,10 +1862,7 @@
       "weight": 86,
       "id": 60,
       "name": "gloom",
-      "abilities": [
-        "chlorophyll",
-        "stench"
-      ],
+      "abilities": ["chlorophyll", "stench"],
       "moves": [],
       "stats": [
         {
@@ -2065,13 +1890,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/44.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/44.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/44.png"
       }
     },
     {
@@ -2079,10 +1902,7 @@
       "weight": 186,
       "id": 61,
       "name": "vileplume",
-      "abilities": [
-        "chlorophyll",
-        "effect-spore"
-      ],
+      "abilities": ["chlorophyll", "effect-spore"],
       "moves": [],
       "stats": [
         {
@@ -2110,13 +1930,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/45.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/45.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/45.png"
       }
     },
     {
@@ -2124,11 +1942,7 @@
       "weight": 54,
       "id": 63,
       "name": "paras",
-      "abilities": [
-        "effect-spore",
-        "dry-skin",
-        "damp"
-      ],
+      "abilities": ["effect-spore", "dry-skin", "damp"],
       "moves": [],
       "stats": [
         {
@@ -2156,13 +1970,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "bug",
-        "grass"
-      ],
+      "types": ["bug", "grass"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/46.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/46.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/46.png"
       }
     },
     {
@@ -2170,11 +1982,7 @@
       "weight": 295,
       "id": 64,
       "name": "parasect",
-      "abilities": [
-        "effect-spore",
-        "dry-skin",
-        "damp"
-      ],
+      "abilities": ["effect-spore", "dry-skin", "damp"],
       "moves": [],
       "stats": [
         {
@@ -2202,13 +2010,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "bug",
-        "grass"
-      ],
+      "types": ["bug", "grass"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/47.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/47.png"
       }
     },
     {
@@ -2216,11 +2022,7 @@
       "weight": 300,
       "id": 65,
       "name": "venonat",
-      "abilities": [
-        "compound-eyes",
-        "tinted-lens",
-        "run-away"
-      ],
+      "abilities": ["compound-eyes", "tinted-lens", "run-away"],
       "moves": [],
       "stats": [
         {
@@ -2248,13 +2050,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "bug",
-        "poison"
-      ],
+      "types": ["bug", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/48.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/48.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/48.png"
       }
     },
     {
@@ -2262,11 +2062,7 @@
       "weight": 125,
       "id": 66,
       "name": "venomoth",
-      "abilities": [
-        "shield-dust",
-        "tinted-lens",
-        "wonder-skin"
-      ],
+      "abilities": ["shield-dust", "tinted-lens", "wonder-skin"],
       "moves": [],
       "stats": [
         {
@@ -2294,13 +2090,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "bug",
-        "poison"
-      ],
+      "types": ["bug", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/49.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/49.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/49.png"
       }
     },
     {
@@ -2308,11 +2102,7 @@
       "weight": 8,
       "id": 67,
       "name": "diglett",
-      "abilities": [
-        "sand-veil",
-        "arena-trap",
-        "sand-force"
-      ],
+      "abilities": ["sand-veil", "arena-trap", "sand-force"],
       "moves": [],
       "stats": [
         {
@@ -2340,12 +2130,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "ground"
-      ],
+      "types": ["ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/50.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/50.png"
       }
     },
     {
@@ -2353,11 +2142,7 @@
       "weight": 333,
       "id": 68,
       "name": "dugtrio",
-      "abilities": [
-        "sand-veil",
-        "arena-trap",
-        "sand-force"
-      ],
+      "abilities": ["sand-veil", "arena-trap", "sand-force"],
       "moves": [],
       "stats": [
         {
@@ -2385,12 +2170,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "ground"
-      ],
+      "types": ["ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/51.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/51.png"
       }
     },
     {
@@ -2398,11 +2182,7 @@
       "weight": 42,
       "id": 69,
       "name": "meowth",
-      "abilities": [
-        "pickup",
-        "technician",
-        "unnerve"
-      ],
+      "abilities": ["pickup", "technician", "unnerve"],
       "moves": [
         "pay-day",
         "scratch",
@@ -2439,12 +2219,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/52.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/52.png"
       }
     },
     {
@@ -2452,11 +2231,7 @@
       "weight": 320,
       "id": 70,
       "name": "persian",
-      "abilities": [
-        "limber",
-        "technician",
-        "unnerve"
-      ],
+      "abilities": ["limber", "technician", "unnerve"],
       "moves": [
         "pay-day",
         "scratch",
@@ -2493,12 +2268,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/53.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/53.png"
       }
     },
     {
@@ -2506,11 +2280,7 @@
       "weight": 196,
       "id": 71,
       "name": "psyduck",
-      "abilities": [
-        "damp",
-        "cloud-nine",
-        "swift-swim"
-      ],
+      "abilities": ["damp", "cloud-nine", "swift-swim"],
       "moves": [],
       "stats": [
         {
@@ -2538,12 +2308,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/54.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/54.png"
       }
     },
     {
@@ -2551,11 +2320,7 @@
       "weight": 766,
       "id": 72,
       "name": "golduck",
-      "abilities": [
-        "damp",
-        "cloud-nine",
-        "swift-swim"
-      ],
+      "abilities": ["damp", "cloud-nine", "swift-swim"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -2594,12 +2359,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/55.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/55.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/55.png"
       }
     },
     {
@@ -2607,11 +2371,7 @@
       "weight": 280,
       "id": 73,
       "name": "mankey",
-      "abilities": [
-        "vital-spirit",
-        "anger-point",
-        "defiant"
-      ],
+      "abilities": ["vital-spirit", "anger-point", "defiant"],
       "moves": [
         "karate-chop",
         "mega-punch",
@@ -2650,12 +2410,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/56.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/56.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/56.png"
       }
     },
     {
@@ -2663,11 +2422,7 @@
       "weight": 320,
       "id": 74,
       "name": "primeape",
-      "abilities": [
-        "vital-spirit",
-        "anger-point",
-        "defiant"
-      ],
+      "abilities": ["vital-spirit", "anger-point", "defiant"],
       "moves": [],
       "stats": [
         {
@@ -2695,12 +2450,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/57.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/57.png"
       }
     },
     {
@@ -2708,11 +2462,7 @@
       "weight": 190,
       "id": 75,
       "name": "growlithe",
-      "abilities": [
-        "intimidate",
-        "flash-fire",
-        "justified"
-      ],
+      "abilities": ["intimidate", "flash-fire", "justified"],
       "moves": [],
       "stats": [
         {
@@ -2740,12 +2490,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/58.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/58.png"
       }
     },
     {
@@ -2753,11 +2502,7 @@
       "weight": 1550,
       "id": 76,
       "name": "arcanine",
-      "abilities": [
-        "intimidate",
-        "flash-fire",
-        "justified"
-      ],
+      "abilities": ["intimidate", "flash-fire", "justified"],
       "moves": [],
       "stats": [
         {
@@ -2785,12 +2530,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/59.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/59.png"
       }
     },
     {
@@ -2798,11 +2542,7 @@
       "weight": 124,
       "id": 77,
       "name": "poliwag",
-      "abilities": [
-        "water-absorb",
-        "damp",
-        "swift-swim"
-      ],
+      "abilities": ["water-absorb", "damp", "swift-swim"],
       "moves": [],
       "stats": [
         {
@@ -2830,12 +2570,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/60.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/60.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/60.png"
       }
     },
     {
@@ -2843,11 +2582,7 @@
       "weight": 200,
       "id": 78,
       "name": "poliwhirl",
-      "abilities": [
-        "water-absorb",
-        "damp",
-        "swift-swim"
-      ],
+      "abilities": ["water-absorb", "damp", "swift-swim"],
       "moves": [],
       "stats": [
         {
@@ -2875,12 +2610,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/61.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/61.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/61.png"
       }
     },
     {
@@ -2888,11 +2622,7 @@
       "weight": 540,
       "id": 79,
       "name": "poliwrath",
-      "abilities": [
-        "water-absorb",
-        "damp",
-        "swift-swim"
-      ],
+      "abilities": ["water-absorb", "damp", "swift-swim"],
       "moves": [
         "double-slap",
         "mega-punch",
@@ -2931,13 +2661,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "water",
-        "fighting"
-      ],
+      "types": ["water", "fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/62.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/62.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/62.png"
       }
     },
     {
@@ -2945,11 +2673,7 @@
       "weight": 195,
       "id": 81,
       "name": "abra",
-      "abilities": [
-        "synchronize",
-        "inner-focus",
-        "magic-guard"
-      ],
+      "abilities": ["synchronize", "inner-focus", "magic-guard"],
       "moves": [],
       "stats": [
         {
@@ -2977,12 +2701,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/63.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/63.png"
       }
     },
     {
@@ -2990,11 +2713,7 @@
       "weight": 565,
       "id": 82,
       "name": "kadabra",
-      "abilities": [
-        "synchronize",
-        "inner-focus",
-        "magic-guard"
-      ],
+      "abilities": ["synchronize", "inner-focus", "magic-guard"],
       "moves": [],
       "stats": [
         {
@@ -3022,12 +2741,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/64.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/64.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/64.png"
       }
     },
     {
@@ -3035,11 +2753,7 @@
       "weight": 480,
       "id": 83,
       "name": "alakazam",
-      "abilities": [
-        "synchronize",
-        "inner-focus",
-        "magic-guard"
-      ],
+      "abilities": ["synchronize", "inner-focus", "magic-guard"],
       "moves": [],
       "stats": [
         {
@@ -3067,12 +2781,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/65.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/65.png"
       }
     },
     {
@@ -3080,11 +2793,7 @@
       "weight": 195,
       "id": 85,
       "name": "machop",
-      "abilities": [
-        "guts",
-        "no-guard",
-        "steadfast"
-      ],
+      "abilities": ["guts", "no-guard", "steadfast"],
       "moves": [
         "karate-chop",
         "mega-punch",
@@ -3123,12 +2832,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/66.png"
       }
     },
     {
@@ -3136,11 +2844,7 @@
       "weight": 705,
       "id": 86,
       "name": "machoke",
-      "abilities": [
-        "guts",
-        "no-guard",
-        "steadfast"
-      ],
+      "abilities": ["guts", "no-guard", "steadfast"],
       "moves": [
         "karate-chop",
         "mega-punch",
@@ -3179,12 +2883,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/67.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/67.png"
       }
     },
     {
@@ -3192,11 +2895,7 @@
       "weight": 1300,
       "id": 87,
       "name": "machamp",
-      "abilities": [
-        "guts",
-        "no-guard",
-        "steadfast"
-      ],
+      "abilities": ["guts", "no-guard", "steadfast"],
       "moves": [
         "karate-chop",
         "mega-punch",
@@ -3235,12 +2934,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/68.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/68.png"
       }
     },
     {
@@ -3248,10 +2946,7 @@
       "weight": 40,
       "id": 88,
       "name": "bellsprout",
-      "abilities": [
-        "chlorophyll",
-        "gluttony"
-      ],
+      "abilities": ["chlorophyll", "gluttony"],
       "moves": [
         "slam",
         "vine-whip",
@@ -3290,13 +2985,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/69.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/69.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/69.png"
       }
     },
     {
@@ -3304,10 +2997,7 @@
       "weight": 64,
       "id": 89,
       "name": "weepinbell",
-      "abilities": [
-        "chlorophyll",
-        "gluttony"
-      ],
+      "abilities": ["chlorophyll", "gluttony"],
       "moves": [],
       "stats": [
         {
@@ -3335,13 +3025,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/70.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/70.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/70.png"
       }
     },
     {
@@ -3349,10 +3037,7 @@
       "weight": 155,
       "id": 90,
       "name": "victreebel",
-      "abilities": [
-        "chlorophyll",
-        "gluttony"
-      ],
+      "abilities": ["chlorophyll", "gluttony"],
       "moves": [],
       "stats": [
         {
@@ -3380,13 +3065,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "grass",
-        "poison"
-      ],
+      "types": ["grass", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/71.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/71.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/71.png"
       }
     },
     {
@@ -3394,11 +3077,7 @@
       "weight": 455,
       "id": 91,
       "name": "tentacool",
-      "abilities": [
-        "clear-body",
-        "liquid-ooze",
-        "rain-dish"
-      ],
+      "abilities": ["clear-body", "liquid-ooze", "rain-dish"],
       "moves": [],
       "stats": [
         {
@@ -3426,13 +3105,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "water",
-        "poison"
-      ],
+      "types": ["water", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/72.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/72.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/72.png"
       }
     },
     {
@@ -3440,11 +3117,7 @@
       "weight": 550,
       "id": 92,
       "name": "tentacruel",
-      "abilities": [
-        "clear-body",
-        "liquid-ooze",
-        "rain-dish"
-      ],
+      "abilities": ["clear-body", "liquid-ooze", "rain-dish"],
       "moves": [],
       "stats": [
         {
@@ -3472,13 +3145,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "water",
-        "poison"
-      ],
+      "types": ["water", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/73.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/73.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/73.png"
       }
     },
     {
@@ -3486,11 +3157,7 @@
       "weight": 200,
       "id": 93,
       "name": "geodude",
-      "abilities": [
-        "rock-head",
-        "sturdy",
-        "sand-veil"
-      ],
+      "abilities": ["rock-head", "sturdy", "sand-veil"],
       "moves": [],
       "stats": [
         {
@@ -3518,13 +3185,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "rock",
-        "ground"
-      ],
+      "types": ["rock", "ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/74.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/74.png"
       }
     },
     {
@@ -3532,11 +3197,7 @@
       "weight": 1050,
       "id": 94,
       "name": "graveler",
-      "abilities": [
-        "rock-head",
-        "sturdy",
-        "sand-veil"
-      ],
+      "abilities": ["rock-head", "sturdy", "sand-veil"],
       "moves": [],
       "stats": [
         {
@@ -3564,13 +3225,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "rock",
-        "ground"
-      ],
+      "types": ["rock", "ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/75.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/75.png"
       }
     },
     {
@@ -3578,11 +3237,7 @@
       "weight": 3000,
       "id": 95,
       "name": "golem",
-      "abilities": [
-        "rock-head",
-        "sturdy",
-        "sand-veil"
-      ],
+      "abilities": ["rock-head", "sturdy", "sand-veil"],
       "moves": [],
       "stats": [
         {
@@ -3610,13 +3265,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "rock",
-        "ground"
-      ],
+      "types": ["rock", "ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/76.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/76.png"
       }
     },
     {
@@ -3624,11 +3277,7 @@
       "weight": 300,
       "id": 96,
       "name": "ponyta",
-      "abilities": [
-        "run-away",
-        "flash-fire",
-        "flame-body"
-      ],
+      "abilities": ["run-away", "flash-fire", "flame-body"],
       "moves": [],
       "stats": [
         {
@@ -3656,12 +3305,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/77.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/77.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/77.png"
       }
     },
     {
@@ -3669,11 +3317,7 @@
       "weight": 950,
       "id": 97,
       "name": "rapidash",
-      "abilities": [
-        "run-away",
-        "flash-fire",
-        "flame-body"
-      ],
+      "abilities": ["run-away", "flash-fire", "flame-body"],
       "moves": [],
       "stats": [
         {
@@ -3701,12 +3345,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/78.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/78.png"
       }
     },
     {
@@ -3714,11 +3357,7 @@
       "weight": 360,
       "id": 98,
       "name": "slowpoke",
-      "abilities": [
-        "oblivious",
-        "own-tempo",
-        "regenerator"
-      ],
+      "abilities": ["oblivious", "own-tempo", "regenerator"],
       "moves": [],
       "stats": [
         {
@@ -3746,13 +3385,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "water",
-        "psychic"
-      ],
+      "types": ["water", "psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/79.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/79.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/79.png"
       }
     },
     {
@@ -3760,11 +3397,7 @@
       "weight": 785,
       "id": 99,
       "name": "slowbro",
-      "abilities": [
-        "oblivious",
-        "own-tempo",
-        "regenerator"
-      ],
+      "abilities": ["oblivious", "own-tempo", "regenerator"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -3803,13 +3436,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "water",
-        "psychic"
-      ],
+      "types": ["water", "psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/80.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/80.png"
       }
     },
     {
@@ -3817,11 +3448,7 @@
       "weight": 60,
       "id": 102,
       "name": "magnemite",
-      "abilities": [
-        "magnet-pull",
-        "sturdy",
-        "analytic"
-      ],
+      "abilities": ["magnet-pull", "sturdy", "analytic"],
       "moves": [],
       "stats": [
         {
@@ -3849,13 +3476,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "electric",
-        "steel"
-      ],
+      "types": ["electric", "steel"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/81.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/81.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/81.png"
       }
     },
     {
@@ -3863,11 +3488,7 @@
       "weight": 600,
       "id": 103,
       "name": "magneton",
-      "abilities": [
-        "magnet-pull",
-        "sturdy",
-        "analytic"
-      ],
+      "abilities": ["magnet-pull", "sturdy", "analytic"],
       "moves": [],
       "stats": [
         {
@@ -3895,13 +3516,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "electric",
-        "steel"
-      ],
+      "types": ["electric", "steel"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/82.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/82.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/82.png"
       }
     },
     {
@@ -3909,11 +3528,7 @@
       "weight": 150,
       "id": 105,
       "name": "farfetchd",
-      "abilities": [
-        "keen-eye",
-        "inner-focus",
-        "defiant"
-      ],
+      "abilities": ["keen-eye", "inner-focus", "defiant"],
       "moves": [
         "razor-wind",
         "whirlwind",
@@ -3951,13 +3566,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/83.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/83.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/83.png"
       }
     },
     {
@@ -3965,11 +3578,7 @@
       "weight": 392,
       "id": 106,
       "name": "doduo",
-      "abilities": [
-        "run-away",
-        "early-bird",
-        "tangled-feet"
-      ],
+      "abilities": ["run-away", "early-bird", "tangled-feet"],
       "moves": [],
       "stats": [
         {
@@ -3997,13 +3606,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/84.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/84.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/84.png"
       }
     },
     {
@@ -4011,11 +3618,7 @@
       "weight": 852,
       "id": 107,
       "name": "dodrio",
-      "abilities": [
-        "run-away",
-        "early-bird",
-        "tangled-feet"
-      ],
+      "abilities": ["run-away", "early-bird", "tangled-feet"],
       "moves": [],
       "stats": [
         {
@@ -4043,13 +3646,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "normal",
-        "flying"
-      ],
+      "types": ["normal", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/85.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/85.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/85.png"
       }
     },
     {
@@ -4057,11 +3658,7 @@
       "weight": 900,
       "id": 108,
       "name": "seel",
-      "abilities": [
-        "thick-fat",
-        "hydration",
-        "ice-body"
-      ],
+      "abilities": ["thick-fat", "hydration", "ice-body"],
       "moves": [],
       "stats": [
         {
@@ -4089,12 +3686,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/86.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/86.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/86.png"
       }
     },
     {
@@ -4102,11 +3698,7 @@
       "weight": 1200,
       "id": 109,
       "name": "dewgong",
-      "abilities": [
-        "thick-fat",
-        "hydration",
-        "ice-body"
-      ],
+      "abilities": ["thick-fat", "hydration", "ice-body"],
       "moves": [],
       "stats": [
         {
@@ -4134,13 +3726,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "water",
-        "ice"
-      ],
+      "types": ["water", "ice"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/87.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/87.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/87.png"
       }
     },
     {
@@ -4148,11 +3738,7 @@
       "weight": 300,
       "id": 110,
       "name": "grimer",
-      "abilities": [
-        "stench",
-        "sticky-hold",
-        "poison-touch"
-      ],
+      "abilities": ["stench", "sticky-hold", "poison-touch"],
       "moves": [],
       "stats": [
         {
@@ -4180,12 +3766,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/88.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/88.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/88.png"
       }
     },
     {
@@ -4193,11 +3778,7 @@
       "weight": 300,
       "id": 111,
       "name": "muk",
-      "abilities": [
-        "stench",
-        "sticky-hold",
-        "poison-touch"
-      ],
+      "abilities": ["stench", "sticky-hold", "poison-touch"],
       "moves": [
         "pound",
         "disable",
@@ -4236,12 +3817,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/89.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/89.png"
       }
     },
     {
@@ -4249,11 +3829,7 @@
       "weight": 40,
       "id": 112,
       "name": "shellder",
-      "abilities": [
-        "shell-armor",
-        "skill-link",
-        "overcoat"
-      ],
+      "abilities": ["shell-armor", "skill-link", "overcoat"],
       "moves": [],
       "stats": [
         {
@@ -4281,12 +3857,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/90.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/90.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/90.png"
       }
     },
     {
@@ -4294,11 +3869,7 @@
       "weight": 1325,
       "id": 113,
       "name": "cloyster",
-      "abilities": [
-        "shell-armor",
-        "skill-link",
-        "overcoat"
-      ],
+      "abilities": ["shell-armor", "skill-link", "overcoat"],
       "moves": [],
       "stats": [
         {
@@ -4326,13 +3897,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "water",
-        "ice"
-      ],
+      "types": ["water", "ice"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/91.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/91.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/91.png"
       }
     },
     {
@@ -4340,9 +3909,7 @@
       "weight": 1,
       "id": 114,
       "name": "gastly",
-      "abilities": [
-        "levitate"
-      ],
+      "abilities": ["levitate"],
       "moves": [],
       "stats": [
         {
@@ -4370,13 +3937,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "ghost",
-        "poison"
-      ],
+      "types": ["ghost", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/92.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/92.png"
       }
     },
     {
@@ -4384,9 +3949,7 @@
       "weight": 1,
       "id": 115,
       "name": "haunter",
-      "abilities": [
-        "levitate"
-      ],
+      "abilities": ["levitate"],
       "moves": [
         "mega-drain",
         "hypnosis",
@@ -4425,13 +3988,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "ghost",
-        "poison"
-      ],
+      "types": ["ghost", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/93.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/93.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/93.png"
       }
     },
     {
@@ -4439,9 +4000,7 @@
       "weight": 405,
       "id": 116,
       "name": "gengar",
-      "abilities": [
-        "levitate"
-      ],
+      "abilities": ["levitate"],
       "moves": [
         "mega-punch",
         "mega-kick",
@@ -4480,13 +4039,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "ghost",
-        "poison"
-      ],
+      "types": ["ghost", "poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/94.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/94.png"
       }
     },
     {
@@ -4494,11 +4051,7 @@
       "weight": 2100,
       "id": 118,
       "name": "onix",
-      "abilities": [
-        "rock-head",
-        "sturdy",
-        "weak-armor"
-      ],
+      "abilities": ["rock-head", "sturdy", "weak-armor"],
       "moves": [
         "bind",
         "slam",
@@ -4537,13 +4090,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "rock",
-        "ground"
-      ],
+      "types": ["rock", "ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/95.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/95.png"
       }
     },
     {
@@ -4551,11 +4102,7 @@
       "weight": 324,
       "id": 121,
       "name": "drowzee",
-      "abilities": [
-        "insomnia",
-        "forewarn",
-        "inner-focus"
-      ],
+      "abilities": ["insomnia", "forewarn", "inner-focus"],
       "moves": [
         "pound",
         "mega-punch",
@@ -4594,12 +4141,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/96.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/96.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/96.png"
       }
     },
     {
@@ -4607,11 +4153,7 @@
       "weight": 756,
       "id": 122,
       "name": "hypno",
-      "abilities": [
-        "insomnia",
-        "forewarn",
-        "inner-focus"
-      ],
+      "abilities": ["insomnia", "forewarn", "inner-focus"],
       "moves": [
         "pound",
         "mega-punch",
@@ -4650,12 +4192,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/97.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/97.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/97.png"
       }
     },
     {
@@ -4663,11 +4204,7 @@
       "weight": 65,
       "id": 123,
       "name": "krabby",
-      "abilities": [
-        "hyper-cutter",
-        "shell-armor",
-        "sheer-force"
-      ],
+      "abilities": ["hyper-cutter", "shell-armor", "sheer-force"],
       "moves": [],
       "stats": [
         {
@@ -4695,12 +4232,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/98.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/98.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/98.png"
       }
     },
     {
@@ -4708,11 +4244,7 @@
       "weight": 600,
       "id": 124,
       "name": "kingler",
-      "abilities": [
-        "hyper-cutter",
-        "shell-armor",
-        "sheer-force"
-      ],
+      "abilities": ["hyper-cutter", "shell-armor", "sheer-force"],
       "moves": [],
       "stats": [
         {
@@ -4740,12 +4272,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/99.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/99.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/99.png"
       }
     },
     {
@@ -4753,11 +4284,7 @@
       "weight": 104,
       "id": 125,
       "name": "voltorb",
-      "abilities": [
-        "soundproof",
-        "static",
-        "aftermath"
-      ],
+      "abilities": ["soundproof", "static", "aftermath"],
       "moves": [],
       "stats": [
         {
@@ -4785,12 +4312,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "electric"
-      ],
+      "types": ["electric"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png"
       }
     },
     {
@@ -4798,11 +4324,7 @@
       "weight": 666,
       "id": 126,
       "name": "electrode",
-      "abilities": [
-        "soundproof",
-        "static",
-        "aftermath"
-      ],
+      "abilities": ["soundproof", "static", "aftermath"],
       "moves": [],
       "stats": [
         {
@@ -4830,12 +4352,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "electric"
-      ],
+      "types": ["electric"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/101.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/101.png"
       }
     },
     {
@@ -4843,10 +4364,7 @@
       "weight": 25,
       "id": 127,
       "name": "exeggcute",
-      "abilities": [
-        "chlorophyll",
-        "harvest"
-      ],
+      "abilities": ["chlorophyll", "harvest"],
       "moves": [
         "leech-seed",
         "poison-powder",
@@ -4885,13 +4403,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "grass",
-        "psychic"
-      ],
+      "types": ["grass", "psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/102.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/102.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/102.png"
       }
     },
     {
@@ -4899,10 +4415,7 @@
       "weight": 1200,
       "id": 128,
       "name": "exeggutor",
-      "abilities": [
-        "chlorophyll",
-        "harvest"
-      ],
+      "abilities": ["chlorophyll", "harvest"],
       "moves": [],
       "stats": [
         {
@@ -4930,13 +4443,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "grass",
-        "psychic"
-      ],
+      "types": ["grass", "psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/103.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/103.png"
       }
     },
     {
@@ -4944,11 +4455,7 @@
       "weight": 65,
       "id": 129,
       "name": "cubone",
-      "abilities": [
-        "rock-head",
-        "lightning-rod",
-        "battle-armor"
-      ],
+      "abilities": ["rock-head", "lightning-rod", "battle-armor"],
       "moves": [
         "mega-punch",
         "mega-kick",
@@ -4987,12 +4494,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "ground"
-      ],
+      "types": ["ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/104.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/104.png"
       }
     },
     {
@@ -5000,11 +4506,7 @@
       "weight": 450,
       "id": 130,
       "name": "marowak",
-      "abilities": [
-        "rock-head",
-        "lightning-rod",
-        "battle-armor"
-      ],
+      "abilities": ["rock-head", "lightning-rod", "battle-armor"],
       "moves": [
         "mega-punch",
         "mega-kick",
@@ -5043,12 +4545,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "ground"
-      ],
+      "types": ["ground"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/105.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/105.png"
       }
     },
     {
@@ -5056,11 +4557,7 @@
       "weight": 498,
       "id": 132,
       "name": "hitmonlee",
-      "abilities": [
-        "limber",
-        "reckless",
-        "unburden"
-      ],
+      "abilities": ["limber", "reckless", "unburden"],
       "moves": [],
       "stats": [
         {
@@ -5088,12 +4585,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/106.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/106.png"
       }
     },
     {
@@ -5101,11 +4597,7 @@
       "weight": 502,
       "id": 133,
       "name": "hitmonchan",
-      "abilities": [
-        "keen-eye",
-        "iron-fist",
-        "inner-focus"
-      ],
+      "abilities": ["keen-eye", "iron-fist", "inner-focus"],
       "moves": [],
       "stats": [
         {
@@ -5133,12 +4625,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "fighting"
-      ],
+      "types": ["fighting"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/107.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/107.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/107.png"
       }
     },
     {
@@ -5146,11 +4637,7 @@
       "weight": 655,
       "id": 135,
       "name": "lickitung",
-      "abilities": [
-        "own-tempo",
-        "oblivious",
-        "cloud-nine"
-      ],
+      "abilities": ["own-tempo", "oblivious", "cloud-nine"],
       "moves": [
         "mega-punch",
         "slam",
@@ -5189,12 +4676,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/108.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/108.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/108.png"
       }
     },
     {
@@ -5202,9 +4688,7 @@
       "weight": 10,
       "id": 137,
       "name": "koffing",
-      "abilities": [
-        "levitate"
-      ],
+      "abilities": ["levitate"],
       "moves": [
         "rage",
         "smokescreen",
@@ -5241,12 +4725,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/109.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/109.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/109.png"
       }
     },
     {
@@ -5254,9 +4737,7 @@
       "weight": 95,
       "id": 138,
       "name": "weezing",
-      "abilities": [
-        "levitate"
-      ],
+      "abilities": ["levitate"],
       "moves": [],
       "stats": [
         {
@@ -5284,12 +4765,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "poison"
-      ],
+      "types": ["poison"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/110.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/110.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/110.png"
       }
     },
     {
@@ -5297,11 +4777,7 @@
       "weight": 1150,
       "id": 139,
       "name": "rhyhorn",
-      "abilities": [
-        "lightning-rod",
-        "rock-head",
-        "reckless"
-      ],
+      "abilities": ["lightning-rod", "rock-head", "reckless"],
       "moves": [
         "stomp",
         "horn-attack",
@@ -5338,13 +4814,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "ground",
-        "rock"
-      ],
+      "types": ["ground", "rock"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/111.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/111.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/111.png"
       }
     },
     {
@@ -5352,11 +4826,7 @@
       "weight": 1200,
       "id": 140,
       "name": "rhydon",
-      "abilities": [
-        "lightning-rod",
-        "rock-head",
-        "reckless"
-      ],
+      "abilities": ["lightning-rod", "rock-head", "reckless"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -5395,13 +4865,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "ground",
-        "rock"
-      ],
+      "types": ["ground", "rock"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/112.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/112.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/112.png"
       }
     },
     {
@@ -5409,11 +4877,7 @@
       "weight": 346,
       "id": 143,
       "name": "chansey",
-      "abilities": [
-        "natural-cure",
-        "serene-grace",
-        "healer"
-      ],
+      "abilities": ["natural-cure", "serene-grace", "healer"],
       "moves": [
         "pound",
         "double-slap",
@@ -5452,12 +4916,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/113.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/113.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/113.png"
       }
     },
     {
@@ -5465,11 +4928,7 @@
       "weight": 350,
       "id": 145,
       "name": "tangela",
-      "abilities": [
-        "chlorophyll",
-        "leaf-guard",
-        "regenerator"
-      ],
+      "abilities": ["chlorophyll", "leaf-guard", "regenerator"],
       "moves": [
         "bind",
         "slam",
@@ -5508,12 +4967,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "grass"
-      ],
+      "types": ["grass"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/114.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/114.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/114.png"
       }
     },
     {
@@ -5521,11 +4979,7 @@
       "weight": 800,
       "id": 147,
       "name": "kangaskhan",
-      "abilities": [
-        "early-bird",
-        "scrappy",
-        "inner-focus"
-      ],
+      "abilities": ["early-bird", "scrappy", "inner-focus"],
       "moves": [
         "comet-punch",
         "mega-punch",
@@ -5564,12 +5018,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/115.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/115.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/115.png"
       }
     },
     {
@@ -5577,11 +5030,7 @@
       "weight": 80,
       "id": 149,
       "name": "horsea",
-      "abilities": [
-        "swift-swim",
-        "sniper",
-        "damp"
-      ],
+      "abilities": ["swift-swim", "sniper", "damp"],
       "moves": [],
       "stats": [
         {
@@ -5609,12 +5058,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/116.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/116.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/116.png"
       }
     },
     {
@@ -5622,11 +5070,7 @@
       "weight": 250,
       "id": 150,
       "name": "seadra",
-      "abilities": [
-        "poison-point",
-        "sniper",
-        "damp"
-      ],
+      "abilities": ["poison-point", "sniper", "damp"],
       "moves": [],
       "stats": [
         {
@@ -5654,12 +5098,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/117.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/117.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/117.png"
       }
     },
     {
@@ -5667,11 +5110,7 @@
       "weight": 150,
       "id": 152,
       "name": "goldeen",
-      "abilities": [
-        "swift-swim",
-        "water-veil",
-        "lightning-rod"
-      ],
+      "abilities": ["swift-swim", "water-veil", "lightning-rod"],
       "moves": [],
       "stats": [
         {
@@ -5699,12 +5138,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/118.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/118.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/118.png"
       }
     },
     {
@@ -5712,11 +5150,7 @@
       "weight": 390,
       "id": 153,
       "name": "seaking",
-      "abilities": [
-        "swift-swim",
-        "water-veil",
-        "lightning-rod"
-      ],
+      "abilities": ["swift-swim", "water-veil", "lightning-rod"],
       "moves": [],
       "stats": [
         {
@@ -5744,12 +5178,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/119.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/119.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/119.png"
       }
     },
     {
@@ -5757,11 +5190,7 @@
       "weight": 345,
       "id": 154,
       "name": "staryu",
-      "abilities": [
-        "illuminate",
-        "natural-cure",
-        "analytic"
-      ],
+      "abilities": ["illuminate", "natural-cure", "analytic"],
       "moves": [],
       "stats": [
         {
@@ -5789,12 +5218,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/120.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/120.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/120.png"
       }
     },
     {
@@ -5802,11 +5230,7 @@
       "weight": 800,
       "id": 155,
       "name": "starmie",
-      "abilities": [
-        "illuminate",
-        "natural-cure",
-        "analytic"
-      ],
+      "abilities": ["illuminate", "natural-cure", "analytic"],
       "moves": [],
       "stats": [
         {
@@ -5834,13 +5258,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "water",
-        "psychic"
-      ],
+      "types": ["water", "psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/121.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/121.png"
       }
     },
     {
@@ -5848,11 +5270,7 @@
       "weight": 545,
       "id": 157,
       "name": "mr-mime",
-      "abilities": [
-        "soundproof",
-        "filter",
-        "technician"
-      ],
+      "abilities": ["soundproof", "filter", "technician"],
       "moves": [
         "double-slap",
         "mega-punch",
@@ -5891,13 +5309,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "psychic",
-        "fairy"
-      ],
+      "types": ["psychic", "fairy"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/122.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/122.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/122.png"
       }
     },
     {
@@ -5905,11 +5321,7 @@
       "weight": 560,
       "id": 158,
       "name": "scyther",
-      "abilities": [
-        "swarm",
-        "technician",
-        "steadfast"
-      ],
+      "abilities": ["swarm", "technician", "steadfast"],
       "moves": [],
       "stats": [
         {
@@ -5937,13 +5349,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "bug",
-        "flying"
-      ],
+      "types": ["bug", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/123.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/123.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/123.png"
       }
     },
     {
@@ -5951,11 +5361,7 @@
       "weight": 406,
       "id": 162,
       "name": "jynx",
-      "abilities": [
-        "oblivious",
-        "forewarn",
-        "dry-skin"
-      ],
+      "abilities": ["oblivious", "forewarn", "dry-skin"],
       "moves": [
         "pound",
         "double-slap",
@@ -5994,13 +5400,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "ice",
-        "psychic"
-      ],
+      "types": ["ice", "psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/124.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/124.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/124.png"
       }
     },
     {
@@ -6008,10 +5412,7 @@
       "weight": 300,
       "id": 164,
       "name": "electabuzz",
-      "abilities": [
-        "static",
-        "vital-spirit"
-      ],
+      "abilities": ["static", "vital-spirit"],
       "moves": [],
       "stats": [
         {
@@ -6039,12 +5440,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "electric"
-      ],
+      "types": ["electric"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/125.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/125.png"
       }
     },
     {
@@ -6052,10 +5452,7 @@
       "weight": 445,
       "id": 167,
       "name": "magmar",
-      "abilities": [
-        "flame-body",
-        "vital-spirit"
-      ],
+      "abilities": ["flame-body", "vital-spirit"],
       "moves": [
         "mega-punch",
         "fire-punch",
@@ -6094,12 +5491,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/126.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/126.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/126.png"
       }
     },
     {
@@ -6107,11 +5503,7 @@
       "weight": 550,
       "id": 169,
       "name": "pinsir",
-      "abilities": [
-        "hyper-cutter",
-        "mold-breaker",
-        "moxie"
-      ],
+      "abilities": ["hyper-cutter", "mold-breaker", "moxie"],
       "moves": [
         "vice-grip",
         "guillotine",
@@ -6149,12 +5541,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "bug"
-      ],
+      "types": ["bug"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/127.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/127.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/127.png"
       }
     },
     {
@@ -6162,11 +5553,7 @@
       "weight": 884,
       "id": 171,
       "name": "tauros",
-      "abilities": [
-        "intimidate",
-        "anger-point",
-        "sheer-force"
-      ],
+      "abilities": ["intimidate", "anger-point", "sheer-force"],
       "moves": [],
       "stats": [
         {
@@ -6194,12 +5581,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/128.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/128.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/128.png"
       }
     },
     {
@@ -6207,10 +5593,7 @@
       "weight": 100,
       "id": 172,
       "name": "magikarp",
-      "abilities": [
-        "swift-swim",
-        "rattled"
-      ],
+      "abilities": ["swift-swim", "rattled"],
       "moves": [],
       "stats": [
         {
@@ -6238,12 +5621,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/129.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/129.png"
       }
     },
     {
@@ -6251,18 +5633,8 @@
       "weight": 2350,
       "id": 173,
       "name": "gyarados",
-      "abilities": [
-        "intimidate",
-        "moxie"
-      ],
-      "moves": [
-        "hydro-pump",
-        "bubble-beam",
-        "dragon-rage",
-        "rage",
-        "bide",
-        "skull-bash"
-      ],
+      "abilities": ["intimidate", "moxie"],
+      "moves": ["hydro-pump", "bubble-beam", "dragon-rage", "rage", "bide", "skull-bash"],
       "stats": [
         {
           "value": 125,
@@ -6289,13 +5661,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "water",
-        "flying"
-      ],
+      "types": ["water", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/130.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/130.png"
       }
     },
     {
@@ -6303,11 +5673,7 @@
       "weight": 2200,
       "id": 175,
       "name": "lapras",
-      "abilities": [
-        "water-absorb",
-        "shell-armor",
-        "hydration"
-      ],
+      "abilities": ["water-absorb", "shell-armor", "hydration"],
       "moves": [
         "horn-drill",
         "sing",
@@ -6346,13 +5712,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "water",
-        "ice"
-      ],
+      "types": ["water", "ice"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/131.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/131.png"
       }
     },
     {
@@ -6360,10 +5724,7 @@
       "weight": 40,
       "id": 176,
       "name": "ditto",
-      "abilities": [
-        "limber",
-        "imposter"
-      ],
+      "abilities": ["limber", "imposter"],
       "moves": [],
       "stats": [
         {
@@ -6391,12 +5752,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png"
       }
     },
     {
@@ -6404,11 +5764,7 @@
       "weight": 65,
       "id": 177,
       "name": "eevee",
-      "abilities": [
-        "run-away",
-        "adaptability",
-        "anticipation"
-      ],
+      "abilities": ["run-away", "adaptability", "anticipation"],
       "moves": [],
       "stats": [
         {
@@ -6436,12 +5792,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/133.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/133.png"
       }
     },
     {
@@ -6449,10 +5804,7 @@
       "weight": 290,
       "id": 178,
       "name": "vaporeon",
-      "abilities": [
-        "water-absorb",
-        "hydration"
-      ],
+      "abilities": ["water-absorb", "hydration"],
       "moves": [],
       "stats": [
         {
@@ -6480,12 +5832,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "water"
-      ],
+      "types": ["water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/134.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/134.png"
       }
     },
     {
@@ -6493,10 +5844,7 @@
       "weight": 245,
       "id": 179,
       "name": "jolteon",
-      "abilities": [
-        "volt-absorb",
-        "quick-feet"
-      ],
+      "abilities": ["volt-absorb", "quick-feet"],
       "moves": [],
       "stats": [
         {
@@ -6524,12 +5872,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "electric"
-      ],
+      "types": ["electric"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/135.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/135.png"
       }
     },
     {
@@ -6537,17 +5884,8 @@
       "weight": 250,
       "id": 180,
       "name": "flareon",
-      "abilities": [
-        "flash-fire",
-        "guts"
-      ],
-      "moves": [
-        "ember",
-        "fire-spin",
-        "rage",
-        "bide",
-        "skull-bash"
-      ],
+      "abilities": ["flash-fire", "guts"],
+      "moves": ["ember", "fire-spin", "rage", "bide", "skull-bash"],
       "stats": [
         {
           "value": 130,
@@ -6574,12 +5912,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "fire"
-      ],
+      "types": ["fire"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/136.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/136.png"
       }
     },
     {
@@ -6587,11 +5924,7 @@
       "weight": 365,
       "id": 186,
       "name": "porygon",
-      "abilities": [
-        "trace",
-        "download",
-        "analytic"
-      ],
+      "abilities": ["trace", "download", "analytic"],
       "moves": [],
       "stats": [
         {
@@ -6619,12 +5952,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/137.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/137.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/137.png"
       }
     },
     {
@@ -6632,11 +5964,7 @@
       "weight": 75,
       "id": 189,
       "name": "omanyte",
-      "abilities": [
-        "swift-swim",
-        "shell-armor",
-        "weak-armor"
-      ],
+      "abilities": ["swift-swim", "shell-armor", "weak-armor"],
       "moves": [
         "horn-attack",
         "hydro-pump",
@@ -6672,13 +6000,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "rock",
-        "water"
-      ],
+      "types": ["rock", "water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/138.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/138.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/138.png"
       }
     },
     {
@@ -6686,11 +6012,7 @@
       "weight": 350,
       "id": 190,
       "name": "omastar",
-      "abilities": [
-        "swift-swim",
-        "shell-armor",
-        "weak-armor"
-      ],
+      "abilities": ["swift-swim", "shell-armor", "weak-armor"],
       "moves": [],
       "stats": [
         {
@@ -6718,13 +6040,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "rock",
-        "water"
-      ],
+      "types": ["rock", "water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/139.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/139.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/139.png"
       }
     },
     {
@@ -6732,11 +6052,7 @@
       "weight": 115,
       "id": 191,
       "name": "kabuto",
-      "abilities": [
-        "swift-swim",
-        "battle-armor",
-        "weak-armor"
-      ],
+      "abilities": ["swift-swim", "battle-armor", "weak-armor"],
       "moves": [],
       "stats": [
         {
@@ -6764,13 +6080,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "rock",
-        "water"
-      ],
+      "types": ["rock", "water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/140.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/140.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/140.png"
       }
     },
     {
@@ -6778,11 +6092,7 @@
       "weight": 405,
       "id": 192,
       "name": "kabutops",
-      "abilities": [
-        "swift-swim",
-        "battle-armor",
-        "weak-armor"
-      ],
+      "abilities": ["swift-swim", "battle-armor", "weak-armor"],
       "moves": [],
       "stats": [
         {
@@ -6810,13 +6120,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "rock",
-        "water"
-      ],
+      "types": ["rock", "water"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/141.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/141.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/141.png"
       }
     },
     {
@@ -6824,11 +6132,7 @@
       "weight": 590,
       "id": 193,
       "name": "aerodactyl",
-      "abilities": [
-        "rock-head",
-        "pressure",
-        "unnerve"
-      ],
+      "abilities": ["rock-head", "pressure", "unnerve"],
       "moves": [
         "razor-wind",
         "wing-attack",
@@ -6866,13 +6170,11 @@
           "name": "special-attack"
         }
       ],
-      "types": [
-        "rock",
-        "flying"
-      ],
+      "types": ["rock", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/142.png"
       }
     },
     {
@@ -6880,11 +6182,7 @@
       "weight": 4600,
       "id": 196,
       "name": "snorlax",
-      "abilities": [
-        "immunity",
-        "thick-fat",
-        "gluttony"
-      ],
+      "abilities": ["immunity", "thick-fat", "gluttony"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -6923,12 +6221,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "normal"
-      ],
+      "types": ["normal"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/143.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/143.png"
       }
     },
     {
@@ -6936,10 +6233,7 @@
       "weight": 554,
       "id": 197,
       "name": "articuno",
-      "abilities": [
-        "pressure",
-        "snow-cloak"
-      ],
+      "abilities": ["pressure", "snow-cloak"],
       "moves": [],
       "stats": [
         {
@@ -6967,13 +6261,11 @@
           "name": "attack"
         }
       ],
-      "types": [
-        "ice",
-        "flying"
-      ],
+      "types": ["ice", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/144.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/144.png"
       }
     },
     {
@@ -6981,10 +6273,7 @@
       "weight": 526,
       "id": 198,
       "name": "zapdos",
-      "abilities": [
-        "pressure",
-        "static"
-      ],
+      "abilities": ["pressure", "static"],
       "moves": [],
       "stats": [
         {
@@ -7012,13 +6301,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "electric",
-        "flying"
-      ],
+      "types": ["electric", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/145.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/145.png"
       }
     },
     {
@@ -7026,10 +6313,7 @@
       "weight": 600,
       "id": 199,
       "name": "moltres",
-      "abilities": [
-        "pressure",
-        "flame-body"
-      ],
+      "abilities": ["pressure", "flame-body"],
       "moves": [],
       "stats": [
         {
@@ -7057,13 +6341,11 @@
           "name": "special-defense"
         }
       ],
-      "types": [
-        "fire",
-        "flying"
-      ],
+      "types": ["fire", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/146.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/146.png"
       }
     },
     {
@@ -7071,10 +6353,7 @@
       "weight": 33,
       "id": 200,
       "name": "dratini",
-      "abilities": [
-        "shed-skin",
-        "marvel-scale"
-      ],
+      "abilities": ["shed-skin", "marvel-scale"],
       "moves": [],
       "stats": [
         {
@@ -7102,12 +6381,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "dragon"
-      ],
+      "types": ["dragon"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/147.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/147.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/147.png"
       }
     },
     {
@@ -7115,10 +6393,7 @@
       "weight": 165,
       "id": 201,
       "name": "dragonair",
-      "abilities": [
-        "shed-skin",
-        "marvel-scale"
-      ],
+      "abilities": ["shed-skin", "marvel-scale"],
       "moves": [
         "slam",
         "horn-drill",
@@ -7155,12 +6430,11 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "dragon"
-      ],
+      "types": ["dragon"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/148.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/148.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/148.png"
       }
     },
     {
@@ -7168,10 +6442,7 @@
       "weight": 2100,
       "id": 202,
       "name": "dragonite",
-      "abilities": [
-        "inner-focus",
-        "multiscale"
-      ],
+      "abilities": ["inner-focus", "multiscale"],
       "moves": [
         "razor-wind",
         "slam",
@@ -7209,13 +6480,11 @@
           "name": "speed"
         }
       ],
-      "types": [
-        "dragon",
-        "flying"
-      ],
+      "types": ["dragon", "flying"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/149.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/149.png"
       }
     },
     {
@@ -7223,10 +6492,7 @@
       "weight": 1220,
       "id": 203,
       "name": "mewtwo",
-      "abilities": [
-        "pressure",
-        "unnerve"
-      ],
+      "abilities": ["pressure", "unnerve"],
       "moves": [
         "mega-punch",
         "pay-day",
@@ -7265,12 +6531,11 @@
           "name": "defense"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/150.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/150.png"
       }
     },
     {
@@ -7278,9 +6543,7 @@
       "weight": 40,
       "id": 206,
       "name": "mew",
-      "abilities": [
-        "synchronize"
-      ],
+      "abilities": ["synchronize"],
       "moves": [
         "pound",
         "mega-punch",
@@ -7319,27 +6582,13 @@
           "name": "hp"
         }
       ],
-      "types": [
-        "psychic"
-      ],
+      "types": ["psychic"],
       "sprites": {
         "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/151.png"
+        "back":
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/151.png"
       }
-    },
-    {
-      "name": "bulbasaur",
-      "sprites": {
-        "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
-      },
-      "stats": [
-        {
-          "name": "hp",
-          "value": "21"
-        }
-      ],
-      "id": 207
     }
   ]
 }
+*/
